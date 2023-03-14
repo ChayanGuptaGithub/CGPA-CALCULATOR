@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGPA Calculator</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .bd{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+        }
+        .odd{
+            border: 2px solid black;
+            padding:70px;
+            margin: 50px;
+        }
+        .even{
+            border: 2px solid black;
+            padding:70px;
+            margin: 50px;
+        }
+        #results_odd{
+            border: 2px solid black;
+            padding:70px;
+            margin: 50px;
+        }
+        form{
+            margin:10px;
+        }
+        button{
+            margin:auto 45vw;
+        }
+        .y{
+            width: 100vw;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        .whole{
+            width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-end;
+            padding: 20px;
+            margin: 100px;
+            border: 2px solid black;
+        }
+        h4{
+            margin-right: 5px;
+        }
+        .but{
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="bd">
+        <div class="odd">
+            <h1>Odd Semester RESULTS</h1>
+            <form>Enter your CGPA   <input type="text" id="cgpa1"></form>
+            <form>Enter number of subjects   <input type="text" id="sub1"></form>
+            <button onclick="percent()">Calculate</button></div>
+        </div>
+            
+        <div class="even">
+            <h1>Even Semester RESULTS</h1>
+            <form>Enter your CGPA   <input type="text" id="cgpa2"></form>
+            <form>Enter number of subjects   <input type="text" id="sub2"></form>
+            <button onclick="percent()">Calculate</button></div>
+        </div>
+    </div>
+
+     
+    <div class="bd">
+        <div class="odd">
+            <h1>Odd Semester Results</h1>
+            <h4>Percentage in odd sem: </h4><div id="percent"></div>
+            <h4>Obtained marks in odd sem: </h4><div id="ob"></div>
+            <h4>Total marks in odd sem: </h4><div id="total"></div>
+        </div>
+        <div class="even">
+            <h1>Even Semester Results</h1>
+            <h4>Percentage in Even sem: </h4><div id="percent1"></div>
+            <h4>Obtained marks in Even sem: </h4><div id="ob1"></div>
+            <h4>Total marks in Even sem: </h4><div id="total1"></div>
+        </div>
+
+    </div>
+    <div class="y">
+        <div class="whole">
+            <h1>Total Semester RESULTS</h1>
+            <form>Enter your YGPA   <input type="text" id="cgpa1"></form>
+        </div>
+        <br>
+        <button class="but" onclick="percent()">Calculate</button></div>
+        <div class="whole">
+            <h1>Total Semester Results</h1>
+            <h4>Percentage : </h4><div id="percent_for_all"></div>
+            <h4>Obtained marks : </h4><div id="ob_for_all"></div>
+            <h4>Total marks : </h4><div id="total_for_all"></div>
+        </div>   
+    </div>
+</body>
+<script>
+    function percent(){
+        var cgpa1=parseFloat(document.querySelector("#cgpa1").value);
+        var sub1=parseInt(document.querySelector("#sub1").value);
+        var cgpa2=parseFloat(document.querySelector("#cgpa2").value);
+        var sub2=parseInt(document.querySelector("#sub2").value);
+        const per=(cgpa1-0.75)*10;
+        const per_even=(cgpa2-0.75)*10;
+        const tot=sub1*100;
+        const obtained=per*sub1;
+        const per1=(cgpa2-0.75)*10;
+        const tot1=sub2*100;
+        const obtained1=per_even*sub2;
+        document.querySelector("#percent").innerHTML=per;
+        document.querySelector("#total").innerHTML=tot;
+        document.querySelector("#ob").innerHTML=obtained;
+        document.querySelector("#percent1").innerHTML=per1;
+        document.querySelector("#total1").innerHTML=tot1;
+        document.querySelector("#ob1").innerHTML=obtained1;
+        const total_marks= (sub1+sub2)*100; 
+        document.querySelector("#total_for_all").innerHTML=total_marks;
+    }
+</script>
+</html>
